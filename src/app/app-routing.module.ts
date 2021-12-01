@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { LogincontrolGuard } from './guards/logincontrol.guard';
 
 const routes: Routes = [
   {
@@ -17,11 +18,13 @@ const routes: Routes = [
   },
   {
     path: 'autos',
-    loadChildren: () => import('./pages/autos/autos.module').then( m => m.AutosPageModule)
+    loadChildren: () => import('./pages/autos/autos.module').then( m => m.AutosPageModule),
+    canActivate:[LogincontrolGuard]
   },
   {
     path: 'viajes',
-    loadChildren: () => import('./pages/viajes/viajes.module').then( m => m.ViajesPageModule)
+    loadChildren: () => import('./pages/viajes/viajes.module').then( m => m.ViajesPageModule),
+    canActivate:[LogincontrolGuard]
   },
   {
     path: 'registro',
@@ -29,7 +32,8 @@ const routes: Routes = [
   },
   {
     path: 'crearviajes',
-    loadChildren: () => import('./pages/crearviajes/crearviajes.module').then( m => m.CrearviajesPageModule)
+    loadChildren: () => import('./pages/crearviajes/crearviajes.module').then( m => m.CrearviajesPageModule),
+    canActivate:[LogincontrolGuard]
   },
 ];
 
