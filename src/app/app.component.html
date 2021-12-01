@@ -1,3 +1,26 @@
 <ion-app>
-  <ion-router-outlet></ion-router-outlet>
+  <ion-menu side="start" menuId="first" contentId="main">
+    <ion-header>
+      <ion-toolbar color="dark">
+        <ion-title slot="start">Menú</ion-title>
+      </ion-toolbar>
+    </ion-header>
+      <ion-content>
+        <ion-menu-toggle>
+          <ion-list  *ngFor="let item of opciones">
+            <ion-item [routerLink]="item.link">
+              <ion-icon slot="end" [name]="item.icono" color="warning"></ion-icon>
+              {{item.texto}}
+            </ion-item>
+          </ion-list>
+      </ion-menu-toggle>
+      </ion-content>
+      <ion-footer>
+        <ion-toolbar color="warning">
+          <ion-title>TeLlevoApp / Duoc UC</ion-title>
+        </ion-toolbar>
+      </ion-footer>
+  </ion-menu>
+  <ion-router-outlet id="main"></ion-router-outlet>
 </ion-app>
+
