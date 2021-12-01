@@ -1,0 +1,41 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="warning">
+    <ion-buttons slot="start">
+      <ion-menu-button menu="first"></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      Inicio
+    </ion-title>
+    <ion-icon name="home" slot="end" class="ion-padding"></ion-icon>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="ion-padding">
+  <ion-text color="Dark">
+    <h1 class="ion-padding" slot="">TeLLevoApp</h1>
+  </ion-text>
+  <!--<ion-text>
+    <h3 class="ion-padding" *ngIf="usuario===''" >Desconocido</h3>
+    <h3 class="ion-padding" *ngIf="usuario!==''" >Bienvenido: {{usuario}}</h3>
+  </ion-text>--> 
+  <ion-card >
+    <ion-card-header>
+      <ion-card-title>Estás acá!</ion-card-title>
+      <ion-card-subtitle>Ubicación Actual</ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+      <!--<img [src]="'../assets/images/ubicacion.jpg'" >-->
+    </ion-card-content>
+  </ion-card>
+  <ion-button expand="block" shape="round" color="dark" routerLink="../login">
+    Ir a Iniciar Sesion
+  </ion-button>
+  <ion-button expand="block" shape="round" color="dark" routerLink="../autos">
+    Ver Autos Disponibles
+  </ion-button>
+  <ion-button expand="block" shape="round" color="dark" routerLink="../viajes">
+    Ver Viajes
+  </ion-button>
+
+
+</ion-content>
