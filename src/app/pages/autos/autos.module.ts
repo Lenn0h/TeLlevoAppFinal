@@ -7,13 +7,15 @@ import { IonicModule } from '@ionic/angular';
 import { AutosPageRoutingModule } from './autos-routing.module';
 
 import { AutosPage } from './autos.page';
+import { ComponentsModule } from '../../components/components.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    AutosPageRoutingModule
+    AutosPageRoutingModule,
+    ComponentsModule
   ],
   declarations: [AutosPage]
 })
