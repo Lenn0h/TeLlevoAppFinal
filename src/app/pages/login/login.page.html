@@ -1,6 +1,21 @@
 <app-encabezado titulo="Iniciar Sesión" icono="person"></app-encabezado>
 
-<ion-content>
-
+<ion-content class="ion-padding" >
+    <ion-text class="ion-padding">
+      <h1 class="ion-padding" class="datos">Ingresa tus datos</h1>
+    </ion-text>
+    <form #MyForm="ngForm" (ngSubmit)="onSubmit()" class="animate__animated animate__bounceInDown">
+      <ion-item>
+        <ion-label position="floating">Usuario: </ion-label>
+        <ion-input type="text" required placeholder="Ingresa tu usuario..." name="usr" [(ngModel)]='user.username'></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Contraseña</ion-label>
+        <ion-input required type="password" placeholder="Ingresa tu contraseña" name="psw" [(ngModel)]='user.password'></ion-input>
+      </ion-item>
+      <ion-button color="dark" type="submit" expand="block" shape="round" [disabled]='MyForm.invalid'>
+        Ingresar
+      </ion-button>
+    </form>
 </ion-content>
 <app-footer></app-footer>

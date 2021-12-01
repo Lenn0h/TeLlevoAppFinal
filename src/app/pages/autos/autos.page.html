@@ -5,11 +5,38 @@
 </ion-header>-->
 <app-encabezado titulo="Vehiculos Disponibles" icono="car-sport"></app-encabezado>
 
-<ion-content>
+<ion-content class="animate__animated animate__bounceInDown">
   <ion-text >
     <h1 class="ion-padding">Vehículos disponibles ahora:</h1>
   </ion-text>
-
+  <ion-card >
+    <ion-card-header>
+      <ion-card-title>Kia Morning</ion-card-title>
+      <ion-card-subtitle>Rodrigo Echeverría</ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+      <img [src]="'../assets/images/mapaDC.jpg'" >
+      <p>Salida: 20:45 - Concepción Centro</p>
+      <p>Precio: $2100</p>
+    </ion-card-content>
+  </ion-card>
+  <ion-button class="ion-margin" expand="block" color="dark" shape="round" (click)="presentAlert()">
+    Solicitar Vehiculo
+  </ion-button>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Hyundai Veloster</ion-card-title>
+      <ion-card-subtitle>Sebastian Poblete</ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+      <img [src]="'../assets/images/mapaDC.jpg'" >
+      <p>Salida: 21:45 - San Pedro De La Paz</p>
+      <p>Precio: $3500</p>
+    </ion-card-content>
+  </ion-card>
+  <ion-button class="ion-margin" expand="block" color="dark" shape="round" (click)="presentAlert()">
+    Solicitar Vehiculo
+  </ion-button>
 </ion-content>
 
 <app-footer></app-footer>

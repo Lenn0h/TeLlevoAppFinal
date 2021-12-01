@@ -1,7 +1,17 @@
 <app-encabezado titulo="Tus Viajes" icono="document-text"></app-encabezado>
 
 <ion-content>
-
-</ion-content>
+    <ion-text >
+      <h1 class="ion-padding">Lista de tus viajes:</h1>
+      <ion-list *ngFor="let vi of viajes"  class="animate__animated animate__backInRight">
+        <ion-item>
+            <ion-avatar slot="start">
+              <img [src]="vi.scrimagen">
+            </ion-avatar>
+            <ion-label>{{vi.fecha}} / {{vi.hora}} / {{vi.precio}}</ion-label>
+        </ion-item>
+      </ion-list>
+    </ion-text>
+  </ion-content>
 
 <app-footer></app-footer>

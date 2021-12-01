@@ -1,6 +1,26 @@
 <app-encabezado titulo="Crear Viajes" icono="rocket"></app-encabezado>
 
-<ion-content>
+<ion-content class="ion-padding" >
+  <ion-text color="dark">
+    <h1>Registra tu viaje</h1>
+  </ion-text>
+    <form #MyForm="ngForm" class="animate__animated animate__backInRight">
+        <ion-item>
+          <ion-label position="floating">Hora de Salida: </ion-label>
+          <ion-input type="text" required name="hr"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">Lugar </ion-label>
+          <ion-input required type="text" name="lug"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label position="floating">Tarifa: </ion-label>
+            <ion-input required type="number" name="taf"></ion-input>
+          </ion-item>
+        <ion-button color="dark" type="submit" expand="block" shape="round" (click)="presentAlert()" [disabled]="MyForm.invalid">
+          Generar Viaje
+        </ion-button>
+      </form>
 
 </ion-content>
 <app-footer></app-footer>
