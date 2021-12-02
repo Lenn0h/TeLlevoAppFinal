@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { AlertController } from '@ionic/angular';
+import { ActionSheetController, AlertController } from '@ionic/angular';
+import { SocialSharing } from '@ionic-native/social-sharing/ngx';
+
 
 
 @Component({
@@ -9,36 +11,40 @@ import { AlertController } from '@ionic/angular';
 })
 export class AutosPage implements OnInit {
 
-  constructor(private alertController:AlertController) { }
+  constructor (private alertController: AlertController, 
+               private actionSheetController: ActionSheetController,  
+               private socialSharing: SocialSharing) { }
 
   ngOnInit() {
   }
+  async presentActionSheet() {
 
-  async presentAlert() {
-    const alert = await this.alertController.create({
+    let url='https://lenn0h.github.io/';
+    const actionSheet = await this.actionSheetController.create({
+      header: 'Selecciona una opción',
       cssClass: 'miClase',
-      header: 'TeLlevoApp',
-      message: 'Solicitando Vehículo...',
-      buttons: [
-        {
-          text: 'Cancelar',
-          role: 'cancel',
-          cssClass: 'secondary',
-          handler: (blah) => {
-            console.log('Confirm Cancel: blah');
-          }
-        }, {
-          text: 'Ok',
-          handler: () => {
-            console.log('Confirm Okay');
-          }
+      buttons: [{
+        text: 'Compartir',
+        icon: 'share-social',
+        handler: () => {
+          console.log('Share clicked');
+          this.socialSharing.share('Hola, Tu viaje se generó de forma correcta, dirigete al estacionamiento de Duoc UC y reunete con tu conductor','Confirmar Viaje',null,url);
         }
-      ]
+      },{
+        text: 'Cancelar',
+        icon: 'close',
+        role: 'cancel',
+        handler: () => {
+          console.log('Cancel clicked');
+        }
+      }]
     });
-    await alert.present();
+    await actionSheet.present();
 
-    const { role } = await alert.onDidDismiss();
+    const { role } = await actionSheet.onDidDismiss();
     console.log('onDidDismiss resolved with role', role);
   }
 
+
+  
 }
